@@ -186,3 +186,7 @@ Validation이 되기 위해서는 최소한 다음을 만족해야 한다.
 
 이름은 다르지만 본질은 동일하다.
 
+
+2025-12-26 appended
+
+“LLM-based free-form judging can be useful for large-scale behavior elicitation, but without an explicit rubric it cannot serve as a reliable validation mechanism.”
