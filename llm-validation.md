@@ -5,6 +5,14 @@
 
 ---
 
+## Motivation ( 2025-12-26 appended )
+
+LLM-based free-form judging can be useful for large-scale behavior elicitation,
+but without an explicit rubric it cannot serve as a reliable validation mechanism.
+
+This document explores how rubric-based evaluation can be layered on top of
+agent evaluation pipelines such as Bloom to enable reproducible and objective validation.
+
 ## 문제의식
 
 채팅 기반 LLM 에이전트의 validation을 설계할 때, 종종 다음과 같은 접근이 등장한다.
@@ -185,8 +193,3 @@ Validation이 되기 위해서는 최소한 다음을 만족해야 한다.
 - hybrid evaluation architecture
 
 이름은 다르지만 본질은 동일하다.
-
-
-2025-12-26 appended
-
-“LLM-based free-form judging can be useful for large-scale behavior elicitation, but without an explicit rubric it cannot serve as a reliable validation mechanism.”
