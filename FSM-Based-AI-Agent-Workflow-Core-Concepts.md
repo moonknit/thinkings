@@ -1,133 +1,131 @@
 # FSM-Based AI Agent Workflow: Core Concepts
 
-This document describes the **core conceptual model** for managing an AI development agent using a **Finite State Machine (FSM)** and four clearly separated elements.
+This document defines a **minimal and explicit conceptual model** for managing an AI development agent using a **Finite State Machine (FSM)** and four strictly separated elements.
 
-The goal of this design is **predictability, reproducibility, and controllability**, rather than making the agent appear “smart.”
+The primary objective of this architecture is **control, reproducibility, and debuggability**. Apparent intelligence or autonomous behavior is explicitly treated as a non-goal.
 
 ---
 
 ## Overview
 
-The agent system is structured around the following four elements:
+The agent is modeled as a deterministic system built on top of an LLM, structured around the following four elements:
 
 1. **Workflow**
 2. **State**
 3. **Detail Process**
 4. **Contract** (including Rulebook and Tools)
 
-Each element has a distinct responsibility and must not be conflated with the others.
+Each element has a single responsibility. Overlap or ambiguity between elements is considered a design error.
 
 ---
 
 ## 1. Workflow
 
-**Workflow defines the high-level structure of the agent’s operation.**
+**Workflow defines the agent’s high-level operational structure.**
 
-It represents the overall scenario or mission the agent is executing and describes:
-
-* The sequence of stages
-* Possible branches
-* Entry and exit points
+It describes the overall task flow the agent must follow, independent of internal reasoning or execution details.
 
 Workflow answers the question:
 
-> *“What is the overall job, and in what order does it progress?”*
+> *“What is the overall process, and how does it progress?”*
+
+### Scope
+
+* Ordered stages of execution
+* Allowed branching paths
+* Entry and terminal conditions
 
 ### Characteristics
 
-* Independent of implementation details
-* Defines the FSM graph itself
-* Does not describe how tasks are performed internally
+* Purely structural
+* Defines the FSM graph
+* Contains no procedural or reasoning logic
 
 ---
 
 ## 2. State
 
-**State represents the agent’s current position within the workflow.**
+**State represents the agent’s current, explicit position within the workflow.**
 
-A state is a concrete node in the FSM and acts as a stable reference point for behavior control.
+A state corresponds to a concrete node in the FSM and serves as the primary anchor for all behavior constraints.
 
 State answers the question:
 
-> *“Where am I right now?”*
+> *“What phase is the agent in right now?”*
 
 ### Characteristics
 
-* Explicit and finite
-* Determines which processes and rules apply
-* Acts as context anchoring, not memory storage
+* Finite and explicitly enumerable
+* Determines which processes and contracts are active
+* Represents position, not accumulated memory or intent
 
 ---
 
 ## 3. Detail Process
 
-**Detail Process defines how the agent behaves within a given state.**
+**Detail Process defines the procedural behavior within a specific state.**
 
-It specifies the internal procedures the agent must follow before transitioning to another state.
+It specifies *how* the agent must operate before a state transition is permitted.
 
 Detail Process answers the question:
 
-> *“How should the agent think and act in this state?”*
+> *“What exact procedure must be followed in this state?”*
 
-### Examples
+### Scope
 
-* Step-by-step reasoning guidelines
-* Validation and verification procedures
-* Decision criteria for state transitions
+* Step-by-step execution or reasoning rules
+* Validation and consistency checks
+* Explicit criteria for state transitions
 
 ### Characteristics
 
-* State-dependent
-* Procedural and deterministic by design
-* The primary layer where reasoning errors can occur if not constrained
+* Strictly state-scoped
+* Designed to be deterministic and auditable
+* The primary layer where uncontrolled reasoning must be constrained
 
 ---
 
 ## 4. Contract (Rulebook & Tools)
 
-**Contract defines the non-negotiable constraints of the agent.**
+**Contract defines the non-negotiable constraints governing the agent.**
 
-It specifies what the agent:
-
-* Is allowed or forbidden to do
-* Can or cannot output
-* May or may not execute via tools
+It specifies the legal boundary of the system rather than recommended behavior.
 
 Contract answers the question:
 
-> *“What laws must the agent obey at all times?”*
+> *“What rules cannot be violated under any circumstances?”*
 
-### Includes
+### Scope
 
-* Behavioral rules
-* Tool usage definitions
-* Output formats and interfaces
+* Allowed and forbidden actions
+* Tool availability and usage constraints
+* Output formats, schemas, and interfaces
 
 ### Characteristics
 
-* Global or state-scoped
-* Enforced constraints, not guidance
-* Violations indicate failure, not creativity
+* Enforced, not advisory
+* Global or explicitly state-bound
+* Violations indicate system failure, not flexibility
 
 ---
 
 ## Design Principles
 
-* Each element must be **clearly separated**
-* State transitions must be **explicit and observable**
-* Contracts must override reasoning
-* The system prioritizes **control over autonomy**
+* Each element must remain **conceptually isolated**
+* State transitions must be **explicit, observable, and externally verifiable**
+* Contracts take precedence over reasoning and process
+* The architecture favors **predictable behavior over adaptive autonomy**
 
 ---
 
 ## Summary
 
-This architecture treats an AI agent not as an autonomous intelligence, but as a **deterministic system layered on top of an LLM**.
+This model treats an AI agent as a **controlled execution system**, not an autonomous actor.
 
-The FSM provides structure, while the four elements ensure that:
+The FSM provides structural determinism, while the four elements ensure that:
 
 * Behavior is reproducible
 * Failures are diagnosable
-* Complexity is managed explicitly
+* Responsibility boundaries are clear
 
-This model is intended for **engineering reliability**, not illusionary intelligence.
+This architecture is intended for **engineering-grade reliability**, not the simulation of intelligence.
