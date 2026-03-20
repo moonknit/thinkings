@@ -1,6 +1,6 @@
 # Multi-Iteration LLM Agent — Design Notes
 
-Practical lessons learned while building a stable multi-iteration LLM agent for workflow / development automation.
+Practical lessons learned while building a stable multi-iteration LLM agent.
 
 ---
 
