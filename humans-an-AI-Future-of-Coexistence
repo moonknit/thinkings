@@ -1,0 +1,36 @@
+# Humans and AI: A Future of Coexistence
+
+AI may eventually perform a large share of human decision-making and execution. But this does not necessarily mean that humans disappear from the process.
+
+The important question is not simply *who makes the decision*, but at what level the decision is made.
+
+AI can handle thousands of detailed, high-frequency decisions: how to implement something, which method to use, what errors to fix, or how to optimize a process. Humans do not need to inspect every one of these decisions individually.
+
+Instead, AI should compress its reasoning into a level that humans can understand.
+
+A human can then ask:
+
+* What are we trying to achieve?
+* Why was this approach chosen?
+* What are the major risks?
+* Do I accept this outcome?
+* Should we proceed?
+
+This creates a different model of human-AI collaboration.
+
+> AI performs most of the detailed reasoning and execution.  
+> Humans understand the decision at an appropriate level, trigger important actions, make higher-level decisions, and take responsibility for the outcome.
+
+Responsibility requires understanding. A person cannot meaningfully take responsibility for something they do not understand at all. Therefore, the goal should not be to keep humans involved in every decision. That would simply turn AI into a sophisticated assistant.
+
+Instead, humans should be involved at the **right level of abstraction**.
+
+AI may operate at the level of thousands of decisions. Humans may operate at the level of goals, trade-offs, risks, and consequences.
+
+Perhaps the future of human-AI collaboration is not simply *human-in-the-loop*.
+
+It is **human-at-the-right-level-of-the-loop**.
+
+AI can increasingly decide *how* things should be done.
+
+Humans may increasingly decide *what should be done*, *when it should be done*, *whether the result is acceptable*, and ultimately, *whether they are willing to take responsibility for it*.
